@@ -1,10 +1,10 @@
-import { AppHeader } from "@/components/app-header";
-import { QrStudio } from "@/components/qr-studio";
+import Header from "@/components/header/Header.component";
+import QrStudio from "@/components/qr-studio/QrStudio.component";
 
 export default function Home() {
   return (
     <>
-      <div className="no-print"><AppHeader /></div>
+      <Header />
       <QrStudio />
     </>
   );

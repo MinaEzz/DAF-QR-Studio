@@ -6,7 +6,7 @@ interface Props {
 export function PrintLayout({ svg }: Props) {
   if (!svg) return null;
   return (
-    <div className="print-only items-center justify-center bg-white p-[20mm]">
+    <div className="print-only items-center justify-center bg-white p-[20mm]!">
       <div className="print-qr" dangerouslySetInnerHTML={{ __html: svg }} />
     </div>
   );

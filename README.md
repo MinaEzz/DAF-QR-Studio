@@ -1,33 +1,97 @@
-# DAF QR Studio — Create. Scan. Connect.
+# DAF QR Studio
 
-Internal DAF tool that turns any link or text (e.g. Google Forms) into a QR Code. Everything runs in the browser: no backend, database, analytics, or environment variables. Entered content is never sent anywhere or put in the URL.
+**Create. Scan. Connect.**
 
-Stack: Next.js (App Router), React, TypeScript, Tailwind CSS, Lucide, `qrcode` (matrix generation), `jspdf` (PDF).
+DAF QR Studio is a lightweight QR code generator built to make sharing links and information easier across DAF.
 
-## Run locally
+The tool allows users to turn URLs, form links, and plain text into customizable QR codes that can be previewed, downloaded, or printed. It runs entirely in the browser, keeping the process simple and the entered content private.
+
+## Features
+
+- **Quick Generation:** Generate QR codes from any URL or text input, with support for `Ctrl + Enter` / `Cmd + Enter`.
+- **Customization:** Adjust QR code colors, dimensions, and error correction levels.
+- **DAF Branding:** Add a DAF logo to the center of the QR code, with the error correction level automatically set to High (H).
+- **Live Preview:** Review the QR code before exporting it.
+- **Export Options:** Download QR codes as PNG, SVG, or PDF, or print them directly.
+- **Print-ready Layout:** Add an optional title and description to create a QR code card suitable for sharing and printing.
+- **Input Validation:** Handle empty input, oversized content, and outdated previews before allowing exports.
+
+## Privacy by Design
+
+DAF QR Studio is designed to work entirely on the client side.
+
+- No backend or database is required.
+- No analytics or external content storage.
+- No environment variables or server-side configuration.
+- Entered content is encoded directly in the browser and is never uploaded or added to the page URL.
+
+## Tech Stack
+
+| Technology           | Purpose                  |
+| -------------------- | ------------------------ |
+| Next.js (App Router) | Application framework    |
+| React & TypeScript   | UI and application logic |
+| Tailwind CSS         | Styling                  |
+| Lucide               | Icons                    |
+| qrcode               | QR code generation       |
+| jsPDF                | PDF export               |
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js
+- npm
+
+### Installation
+
+Clone the repository and install the dependencies:
+
 ```bash
 npm install
-npm run dev      # http://localhost:3000
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to access the application.
+
+### Production Build
+
+To create and run a production build:
+
+```bash
 npm run build
 npm run start
 ```
 
-## Features
-- Paste any text/URL → Generate (Ctrl/Cmd+Enter also works). Input is encoded exactly as typed.
-- Empty-input validation; clear error if content exceeds QR capacity.
-- "Previous content" warning + Update button; exports are disabled while the preview is out of date.
-- Colors, size, error correction (L/M/Q/H), optional DAF center logo (forces level H), contrast warnings, reset.
-- Preview, PNG, SVG, PDF and Print all use one shared QR card layout (optional title, QR Code, optional description) built in `lib/qr-card.ts`. PNG is 2× the selected size (min 800 px wide), SVG is vector, PDF is A4 with the card centered.
+## Deployment
 
-## Deploy to Vercel
-1. Push this folder to a Git repository (GitHub/GitLab/Bitbucket).
-2. In Vercel: **Add New → Project**, import the repo. The Next.js preset is detected automatically.
-3. Leave build settings and environment variables empty, then **Deploy**.
-(Or run `npx vercel` from this folder.)
+The application can be deployed to [Vercel](https://vercel.com/) with minimal configuration.
 
-## Manual test checklist
-Google Forms URL, website URL, plain text, numbers, a very long string, empty input, oversize input (~5000 chars), color changes, logo on/off, PNG/SVG/PDF downloads, Print preview, scan the result with a phone, and check desktop and mobile widths.
+1. Push the project to a Git repository.
+2. Import the repository into Vercel.
+3. Keep the default Next.js build settings.
+4. No environment variables are required.
+5. Deploy the application.
 
-## Known limitations
-- The PDF title/description use the built-in Helvetica font, which does not render Arabic or other non-Latin scripts. Use **Print → Save as PDF** for those.
-- Fonts are system fonts (no Google Fonts), so the app builds offline.
+## Export Details
+
+All export formats use a shared QR card layout to maintain a consistent appearance across the preview and exported files.
+
+- **PNG:** Raster export at twice the selected QR size, with a minimum width of 800 pixels.
+- **SVG:** Scalable vector format.
+- **PDF:** A4 document with the QR card centered on the page.
+- **Print:** Opens a print-friendly version of the QR card.
+
+## Known Limitations
+
+- PDF exports use the built-in Helvetica font, which does not support Arabic and some other non-Latin characters in titles and descriptions. For these cases, use the browser's **Print → Save as PDF** option instead.
+- The application uses system fonts and does not depend on externally hosted fonts, allowing it to build without downloading font assets.
+
+---
+
+**DAF QR Studio** — A simple way to create and share information through QR codes.
