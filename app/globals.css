@@ -1,39 +1,99 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  background: #f6f7fb;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  
-  
+.print-only {
+  display: none;
+}
+.print-qr svg {
+  width: 150mm;
+  height: auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  body {
+    background: #fff;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: flex !important;
+    min-height: 100vh;
+    justify-content: center;
+  }
+  .print-qr svg {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-body { background: #f6f7fb; }
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
-.print-only { display: none; }
-.print-qr svg { width: 150mm; height: auto; }
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
-@media print {
-  @page { size: A4; margin: 0; }
-  body { background: #fff; }
-  .no-print { display: none !important; }
-  .print-only { display: flex !important; min-height: 100vh; justify-content: center; }
-  .print-qr svg { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+img {
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+/*Tailwind Config*/
+@utility container {
+  width: 100%;
+  margin-inline: auto !important;
+  padding-inline: 1rem !important;
+}
+
+.pd-y {
+  padding: 104px 0 !important;
+}
+.pd-y-s {
+  padding: 70px 0 !important;
+}
+.mg-y {
+  margin: 104px 0 !important;
+}
+.mg-y-s {
+  margin: 70px 0 !important;
+}
+.mg-b {
+  margin-bottom: 104px !important;
 }
