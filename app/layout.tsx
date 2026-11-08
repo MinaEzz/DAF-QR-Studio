@@ -60,8 +60,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.className}antialiased`}>{children}</body>
-      <Analytics />
+      <body className={`${roboto.className}antialiased`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
