@@ -18,8 +18,8 @@ export default function PreviewSection({
 
   return (
     <section className="w-full h-fit lg:sticky lg:top-6 bg-white rounded-xl border border-slate-200 px-4! py-6! shadow-sm">
-      <h2 className="w-full text-2xl text-[#29357F] font-bold capitalize flex items-center gap-2 mb-6!">
-        <Eye size={24} />
+      <h2 className="w-full xl:text-2xl md:text-xl text-lg text-[#29357F] font-bold capitalize flex items-center gap-2 mb-6!">
+        <Eye size={20} />
         Preview
       </h2>
 

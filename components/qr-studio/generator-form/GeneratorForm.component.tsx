@@ -21,13 +21,13 @@ export default function GeneratorForm({
 }: IGeneratorFormProps) {
   return (
     <form className="w-full bg-white rounded-xl border border-slate-200 px-4! py-6! shadow-sm">
-      <h2 className="w-full text-2xl text-[#29357F] font-bold capitalize flex items-center gap-2 mb-6!">
-        <Link size={24} />
+      <h2 className="w-full xl:text-2xl md:text-xl text-lg text-[#29357F] font-bold capitalize flex items-center gap-2 mb-6!">
+        <Link size={20} />
         Generate Your QR Code
       </h2>
       {/** QR CONTENT INPUT */}
 
-      <label className="w-full flex flex-col gap-2 text-base font-medium text-slate-800">
+      <label className="w-full flex flex-col gap-2 md:text-base text-sm font-medium text-slate-800">
         Content For Your QR Code
         <textarea
           value={input}
@@ -54,21 +54,21 @@ export default function GeneratorForm({
         </div>
       </label>
       {/** SUBMIT & CLEAR BUTTONS */}
-      <div className="w-full flex items-center gap-3 mt-4! pb-5! border-b border-slate-100">
+      <div className="w-full flex items-center max-md:flex-col gap-3 mt-4! pb-5! border-b border-slate-100">
         <button
           type="submit"
           onClick={(e) => {
             e.preventDefault();
             handleGenerate();
           }}
-          className={`${btnCls} text-lg flex-1 border-[#29357F] bg-[#29357F] font-semibold text-white hover:bg-[#222c69] hover:border-[#222c69] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#29357F]/40`}
+          className={`${btnCls} md:text-lg text-base md:flex-1 w-full border-[#29357F] bg-[#29357F] font-semibold text-white hover:bg-[#222c69] hover:border-[#222c69] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#29357F]/40`}
         >
           <QrCode size={20} /> Generate QR Code
         </button>
         <button
           type="reset"
           onClick={handleClear}
-          className={`${btnCls} text-lg border-slate-300 font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#29357F]/30`}
+          className={`${btnCls} md:text-lg text-base max-md:w-full border-slate-300 font-medium text-slate-700 hover:bg-slate-50 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#29357F]/30`}
         >
           <Eraser size={20} /> Clear
         </button>
@@ -77,7 +77,7 @@ export default function GeneratorForm({
       <OptionalWarning />
       {/** TITLE & DESCRIPTION INPUTS */}
       <div className="w-full flex flex-col gap-4">
-        <label className="w-full flex flex-col gap-2 text-base font-medium text-slate-800">
+        <label className="w-full flex flex-col gap-2 md:text-base text-sm font-medium text-slate-800">
           <span>
             Title <span className="text-slate-400">(Optional)</span>
           </span>
@@ -88,7 +88,7 @@ export default function GeneratorForm({
             className={fieldCls}
           />
         </label>
-        <label className="w-full flex flex-col gap-2 text-base font-medium text-slate-800">
+        <label className="w-full flex flex-col gap-2 md:text-base text-sm font-medium text-slate-800">
           <span>
             Description <span className="text-slate-400">(Optional)</span>
           </span>
