@@ -16,8 +16,8 @@ export default function Header() {
             />
           </div>
           {/** APP SLOGAN */}
-          <div className="text-right sm:border-l sm:border-slate-200 sm:pl-5! sm:text-left!">
-            <h1 className="text-lg font-semibold text-[#29357F] sm:text-xl">
+          <div className="sm:border-l sm:border-slate-200 sm:pl-5!">
+            <h1 className="text-lg sm:text-xl font-semibold text-[#29357F]">
               DAF QR Studio
             </h1>
             <p className="text-sm text-slate-500">Create. Scan. Connect.</p>

@@ -38,8 +38,8 @@ export default function CustomizationPanel({
         className="w-full flex items-center justify-between"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <h2 className="w-full text-2xl text-[#29357F] font-bold capitalize flex items-center gap-2">
-          <Settings size={24} />
+        <h2 className="w-full xl:text-2xl md:text-xl text-lg text-[#29357F] font-bold capitalize flex items-center gap-2">
+          <Settings size={20} />
           Customize Appearance
         </h2>
         <ChevronDownIcon
@@ -59,7 +59,7 @@ export default function CustomizationPanel({
             ).map(([k, label]) => (
               <label
                 key={k}
-                className="w-full flex flex-col gap-2 text-sm font-medium text-slate-800"
+                className="w-full flex flex-col gap-2 md:text-base text-sm font-medium text-slate-700"
               >
                 {label}
                 <input
@@ -81,7 +81,7 @@ export default function CustomizationPanel({
             </p>
           )}
 
-          <label className="w-full flex flex-col gap-2 text-sm font-medium text-slate-800">
+          <label className="w-full flex flex-col gap-2 md:text-base text-sm font-medium text-slate-700">
             Export Resolution: {o.size} × {o.size} px
             <input
               type="range"
@@ -96,7 +96,7 @@ export default function CustomizationPanel({
               Controls the exported QR card dimensions and resolution.
             </span>
           </label>
-          <label className="w-full flex flex-col gap-2 text-sm font-medium text-slate-800">
+          <label className="w-full flex flex-col gap-2 md:text-base text-sm font-medium text-slate-700">
             Error correction
             <select
               value={o.useLogo ? "H" : o.ecl}
@@ -116,7 +116,7 @@ export default function CustomizationPanel({
               </span>
             )}
           </label>
-          <label className="w-full flex items-center gap-3 text-sm font-medium text-slate-700">
+          <label className="w-full flex items-center gap-3 md:text-base text-sm font-medium text-slate-700">
             <input
               type="checkbox"
               checked={o.useLogo}
